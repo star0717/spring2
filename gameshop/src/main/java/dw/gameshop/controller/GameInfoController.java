@@ -26,7 +26,7 @@ public class GameInfoController {
 
     @PutMapping("api/game/{id}")
     public Game updateGameById(@PathVariable long id,
-                                       @RequestBody Game game){
+                               @RequestBody Game game){
         return gameInfoService.updateGameById(id, game);
     }
 }

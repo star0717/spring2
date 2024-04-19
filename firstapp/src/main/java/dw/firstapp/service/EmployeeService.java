@@ -1,5 +1,6 @@
 package dw.firstapp.service;
 
+import dw.firstapp.exception.ResourceNotFoundException;
 import dw.firstapp.model.Employee;
 import dw.firstapp.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +27,9 @@ public class EmployeeService {
     public Employee getEmployeeById(long id){
       Optional <Employee> employee = employeeRepository.findById(id);
       // optinal로 감싸야 null이 되지않으므로 일종의 안전장치 역할로 감싸준 것
+        // 예외처리
         if (employee.isEmpty()){
-            // 예외처리
-            return null;
+            throw new ResourceNotFoundException("Employee", "ID", id);
         }else {
             return employee.get();
         }
@@ -46,7 +47,7 @@ public class EmployeeService {
             employeeRepository.save(employee1.get());
             return employee1.get();
         }else{
-            return null;
+            throw new ResourceNotFoundException("Employee", "ID", id);
         }
     }
 
@@ -56,7 +57,7 @@ public class EmployeeService {
             employeeRepository.deleteById(id);
             return employee.get();
         }else {
-            return null;
+            throw new ResourceNotFoundException("Employee", "ID", id);
         }
     }
 }
