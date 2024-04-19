@@ -54,5 +54,4 @@ public class User {
         this.email = email;
     }
     
-    //갑자기 왜 커밋이 안되냐
 }
