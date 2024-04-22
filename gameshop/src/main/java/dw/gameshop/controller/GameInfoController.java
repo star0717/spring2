@@ -41,4 +41,14 @@ public class GameInfoController {
     public ResponseEntity<User> saveUser(@RequestBody User user){
         return new ResponseEntity<>(gameInfoService.saveUser(user), HttpStatus.OK);
     }
+
+    @GetMapping("/products/maxprice")
+    public ResponseEntity<Game> getGameWithMaxPrice(){
+        return new ResponseEntity<>(gameInfoService.getGameWithMaxPrice(), HttpStatus.OK);
+    }
+
+    @GetMapping("/products/maxpricetop3")
+    public ResponseEntity<List<Game>> getGameWithMaxPriceTop3(){
+        return new ResponseEntity<>(gameInfoService.getGameWithMaxPriceTop3(), HttpStatus.OK);
+    }
 }

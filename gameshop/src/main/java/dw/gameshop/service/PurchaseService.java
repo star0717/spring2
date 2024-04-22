@@ -15,9 +15,17 @@ import java.util.Optional;
 
 @Service
 public class PurchaseService {
-    @Autowired
+
     PurchaseRepository purchaseRepository;
     UserRepository userRepository;
+
+    @Autowired
+    public PurchaseService(PurchaseRepository purchaseRepository, UserRepository userRepository) {
+        this.purchaseRepository = purchaseRepository;
+        this.userRepository = userRepository;
+    }
+
+
     public  Purchase savePurchase(Purchase purchase){
         // 구매확정 바로 직전, 현재 시간 저장
         purchase.setPurchaseTime(LocalDateTime.now());
@@ -31,6 +39,16 @@ public class PurchaseService {
         Optional<User> userOptional  = userRepository.findByUserId(userId);
         if (userOptional.isEmpty()){
             throw new ResourceNotFoundException("User", "ID", userId);
+        }
+        return purchaseRepository.findByUser(userOptional.get());
+    }
+    
+    // 유저 이름으로 구매한 게임 찾기
+    public  List<Purchase> getPurchaseListByUserName(String userName){
+        // 유저이름으로 유저객체 찾기
+        Optional<User> userOptional = userRepository.findByUserName(userName);
+        if (userOptional.isEmpty()){
+            throw new ResourceNotFoundException("User", "Name", userName);
         }
         return purchaseRepository.findByUser(userOptional.get());
     }
