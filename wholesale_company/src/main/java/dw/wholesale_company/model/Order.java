@@ -24,11 +24,11 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "고객번호")
-    private Customer customerId ;
+    private Customer customer ;
 
     @ManyToOne
     @JoinColumn(name = "사원번호")
-    private Employee employeeId;
+    private Employee employee;
 
     @Column(name = "주문일")
     private LocalDate orderDate;

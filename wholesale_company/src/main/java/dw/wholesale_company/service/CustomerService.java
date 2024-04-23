@@ -3,10 +3,13 @@ package dw.wholesale_company.service;
 import dw.wholesale_company.model.Customer;
 import dw.wholesale_company.repository.CustomerRepository;
 import java.util.List;
+
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@Transactional
 public class CustomerService {
     CustomerRepository customerRepository;
 
@@ -18,4 +21,5 @@ public class CustomerService {
     public List<Customer> getAllCustomers(){
         return customerRepository.findAll();
     }
+
 }

@@ -17,17 +17,17 @@ import org.aspectj.weaver.ast.Or;
 
 public class OrderDetail {
     @Id
-    @Column(name="주문세부번호")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String orderDetailId;
+    @Column(name="주문세부번호")
+    private long orderDetailId;
 
     @ManyToOne
     @JoinColumn(name = "주문번호")
-    private Order orderId;
+    private Order order;
 
     @ManyToOne
     @JoinColumn(name = "제품번호")
-    private Product productId;
+    private Product product;
 
     @Column(name = "단가")
     private long unitPrice;

@@ -26,9 +26,8 @@ public class Product {
     @Column(name = "포장단위")
     private String pkgUnit;
 
-    @ManyToOne
-    @JoinColumn(name = "단가")
-    private OrderDetail unitPrice;
+    @Column(name = "단가")
+    private long unitPrice;
 
     @Column(name = "재고")
     private long inventory;
