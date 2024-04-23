@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "review_id")
     private long id;
     @ManyToOne
     @JoinColumn(name="game_id")

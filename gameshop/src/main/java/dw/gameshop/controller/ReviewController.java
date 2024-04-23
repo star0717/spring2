@@ -30,8 +30,9 @@ public class ReviewController {
                 HttpStatus.OK);
     }
 
-    @GetMapping("/reviews/dto")
-    public ResponseEntity<List<ReviewDto>> getReviewAllByDto(){
-        return new ResponseEntity<>(reviewService.getReviewAllByDto(), HttpStatus.OK);
-    }
+//    @GetMapping("/reviews/dto")
+//    public ResponseEntity<List<ReviewDto>> getReviewAllByDto(){
+//        return new ResponseEntity<>(reviewService.getReviewAllByDto(), HttpStatus.OK);
+//    }
+
 }

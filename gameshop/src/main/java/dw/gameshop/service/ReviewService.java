@@ -26,18 +26,16 @@ public class ReviewService {
         return reviewRepository.findAll();
     }
 
+
+
     public List<ReviewDto> getReviewAllByDto() {
         List<Review> reviewList = reviewRepository.findAll();
         List<ReviewDto> reviewDtoList = new ArrayList<>();
         for (int i = 0; i < reviewList.size(); i++) {
             ReviewDto reviewDto = new ReviewDto();
-            reviewDto.setReviewPoint(reviewList.get(i).getPoint());
-            reviewDto.setReviewText(reviewList.get(i).getReviewText());
-            reviewDto.setGameId(reviewList.get(i).getGame().getId());
-            reviewDto.setGameName(reviewList.get(i).getGame().getTitle());
-            reviewDto.setUserId(reviewList.get(i).getUser().getUserId());
-            reviewDtoList.add(reviewDto);
+            reviewDtoList.add(reviewDto.toReviewDtoFromReview(reviewList.get(i)));
         }
         return reviewDtoList;
     }
+
 }
