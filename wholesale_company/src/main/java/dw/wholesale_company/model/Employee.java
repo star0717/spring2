@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @NoArgsConstructor // 기본생성자
 @AllArgsConstructor
@@ -21,7 +20,7 @@ import java.time.LocalDateTime;
 public class Employee {
     @Id
     @Column(name = "사원번호")
-    private String employeeId;
+    private String employee;
 
     @Column(name="이름")
     private String name;

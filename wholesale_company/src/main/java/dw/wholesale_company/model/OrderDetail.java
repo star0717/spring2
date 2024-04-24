@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.aspectj.weaver.ast.Or;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,7 +18,7 @@ public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="주문세부번호")
-    private long orderDetailId;
+    private long orderDetail;
 
     @ManyToOne
     @JoinColumn(name = "주문번호")

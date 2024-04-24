@@ -17,7 +17,7 @@ import lombok.Setter;
 public class Mileage {
     @Id
     @Column(name = "등급명")
-    private String id;
+    private String mileage;
 
     @Column(name = "하한마일리지")
     private long lowLimit;

@@ -17,7 +17,7 @@ public class Customer {
 
     @Id
     @Column(name="고객번호")
-    private String customerId;
+    private String customer;
 
     @Column(name="고객회사명")
     private String customerName;

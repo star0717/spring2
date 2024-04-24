@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,7 +19,7 @@ import java.time.LocalDateTime;
 public class Order {
     @Id
     @Column(name = "주문번호")
-    private String orderId;
+    private String order;
 
     @ManyToOne
     @JoinColumn(name = "고객번호")
