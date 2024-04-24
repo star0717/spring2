@@ -41,5 +41,5 @@ public class Customer {
     private String phoneNumber;
 
     @Column(name="마일리지")
-    private long mileage;
+    private int mileage;
 }

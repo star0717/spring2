@@ -6,6 +6,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -20,5 +21,11 @@ public class EmployeeService {
 
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
+    }
+    public Employee getEmployeeByHireLatest() {
+        return employeeRepository.findAll()
+                .stream().filter(e->e.getPosition().equals("사원"))
+                .sorted(Comparator.comparing(Employee::getHireDate).reversed())
+                .findFirst().get();
     }
 }

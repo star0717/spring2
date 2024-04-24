@@ -18,7 +18,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="제품번호")
-    private long product;
+    private long productId;
 
     @Column(name = "제품명")
     private String productName;
@@ -31,4 +31,5 @@ public class Product {
 
     @Column(name = "재고")
     private long inventory;
+
 }
