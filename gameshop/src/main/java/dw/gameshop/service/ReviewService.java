@@ -26,16 +26,26 @@ public class ReviewService {
         return reviewRepository.findAll();
     }
 
-
-
     public List<ReviewDto> getReviewAllByDto() {
         List<Review> reviewList = reviewRepository.findAll();
         List<ReviewDto> reviewDtoList = new ArrayList<>();
-        for (int i = 0; i < reviewList.size(); i++) {
+        for (int i=0; i<reviewList.size(); i++) {
             ReviewDto reviewDto = new ReviewDto();
             reviewDtoList.add(reviewDto.toReviewDtoFromReview(reviewList.get(i)));
         }
         return reviewDtoList;
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

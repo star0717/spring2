@@ -34,4 +34,8 @@ public class CustomerService {
                 .collect(Collectors.toList());
     }
 
+    public List<Customer> getCustomerByMileageGrade(){
+
+    }
+
 }

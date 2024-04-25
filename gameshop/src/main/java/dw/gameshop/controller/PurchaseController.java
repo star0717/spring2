@@ -20,10 +20,10 @@ public class PurchaseController {
         return purchaseService.savePurchase(purchase);
     }
 
-    @GetMapping("/products/purchase")
-    public List<Purchase> getAllpurchases(){
-        return purchaseService.getAllpurchases();
-    }
+//    @GetMapping("/products/purchase")
+//    public List<Purchase> getAllpurchases(){
+//        return purchaseService.getAllpurchases();
+//    }
 
     @GetMapping("/products/purchase/{userId}")
     public List<Purchase> getPurchaseListById(@PathVariable String userId) {
