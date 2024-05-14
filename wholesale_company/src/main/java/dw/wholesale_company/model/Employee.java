@@ -58,5 +58,4 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name="부서번호")
     private Department department;
-
 }

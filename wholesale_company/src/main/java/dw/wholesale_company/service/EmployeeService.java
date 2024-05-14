@@ -13,18 +13,21 @@ import java.util.List;
 @Transactional
 public class EmployeeService {
     EmployeeRepository employeeRepository;
-
     @Autowired
     public EmployeeService(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
 
+
+
+
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
+
     public Employee getEmployeeByHireLatest() {
         return employeeRepository.findAll()
-                .stream().filter(e->e.getPosition().equals("사원"))
+                .stream().filter(e->e.getPosition().equals("사원") )
                 .sorted(Comparator.comparing(Employee::getHireDate).reversed())
                 .findFirst().get();
     }

@@ -12,10 +12,11 @@ import org.springframework.stereotype.Service;
 @Service
 @Transactional
 public class CustomerService {
-    CustomerRepository customerRepository;
 
+
+    CustomerRepository customerRepository;
     @Autowired
-    public CustomerService(CustomerRepository customerRepository){
+    public CustomerService(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 
@@ -24,6 +25,7 @@ public class CustomerService {
     }
 
     public List<Customer> getCustomerWithHighMileThanAvg() {
+
         List<Customer> customers = customerRepository.findAll();
         int sum = 0;
         for (int i=0; i<customers.size(); i++) {
@@ -33,9 +35,4 @@ public class CustomerService {
         return customers.stream().filter(c->c.getMileage() > avg)
                 .collect(Collectors.toList());
     }
-
-    public List<Customer> getCustomerByMileageGrade(){
-
-    }
-
 }
