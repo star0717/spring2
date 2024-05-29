@@ -16,6 +16,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.util.AntPathMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -31,7 +32,10 @@ public class SecurityConfig {
                                 new AntPathRequestMatcher("/products/**"),
                                 new AntPathRequestMatcher("/user/login"),
                                 new AntPathRequestMatcher("/user/signup"),
-                                new AntPathRequestMatcher("/login")
+                                new AntPathRequestMatcher("/login"),
+                                new AntPathRequestMatcher("/gameshop/**"),
+                                new AntPathRequestMatcher("/css/**"),
+                                new AntPathRequestMatcher("/js/**")
                         ).permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form->form.loginPage("/login").defaultSuccessUrl("/articles"))
