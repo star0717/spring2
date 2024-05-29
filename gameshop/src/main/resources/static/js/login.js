@@ -27,3 +27,17 @@ document.querySelector(".loginBtn").addEventListener("click", () => {
       console.log("error:(", error);
     });
 });
+
+function sessionCurrent() {
+  axios
+    .get("http://localhost:8080/user/current", { withCredentials: true })
+    .then((response) => {
+      console.log("data", response);
+      if (response.status == 200) {
+        console.log("session success");
+      }
+    })
+    .catch((error) => {
+      console.log("error!!!");
+    });
+}
