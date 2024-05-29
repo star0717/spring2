@@ -4,6 +4,7 @@ import dw.gameshop.dto.UserDto;
 import dw.gameshop.service.UserDetailService;
 import dw.gameshop.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,6 +51,33 @@ public class UserController {
 
         return ResponseEntity.ok("Success");
     }
+
+    @PostMapping("/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response){
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        return "You have been logged out.";
+    }
+    // HttpServletRequest => 클라이언트한테 오는 요청
+    // HttpServletResponse => 클라이언트한테 보내는 요청
+
+//    @PostMapping("join")
+//    public ResponseEntity<String> join(@RequestBody UserDto userDto, HttpServletRequest request) {
+//        Authentication authentication = authenticationManager.authenticate(
+//                new UserJoinAuthentication(userDto.getUserId(), userDto.getPassword(),userDto.getUserName(),userDto.getUserEmail())
+//        );
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+//
+//        // 세션 생성
+//        HttpSession session = request.getSession(true);
+//        // 세션에 인증 객체 저장
+//        session.setAttribute((HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY),
+//                SecurityContextHolder.getContext());
+//
+//        return ResponseEntity.ok("Success");
+//    }
 
     @GetMapping("current")
     public String getCurrentUser() {

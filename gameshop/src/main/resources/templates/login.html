@@ -36,12 +36,42 @@
           </div>
           <div></div>
           <div class="loginBtn">Login</div>
+          <div class="signupBtn">Sign up</div>
           <button onclick="sessionCurrent()">session check</button>
         </div>
         <div class="user-box hidden">
           <p></p>
           <div class="logoutBtn">Logout</div>
         </div>
+        <!-- 회원가입 -->
+        <div class="hidden signup-box">
+          <label>ID</label>
+          <input type="text" id="signupId" />
+          <div class="success-message hidden">사용가능한 유저정보입니다.</div>
+          <div class="failure-message hidden">
+            4이상 12미만의 입력값을 넣어주세요
+          </div>
+          <label>Password</label>
+          <input type="password" id="signupPassword" />
+          <div class="success-message hidden">사용가능한 유저정보입니다.</div>
+          <div class="failure-message hidden">
+            4이상 12미만의 입력값을 넣어주세요
+          </div>
+          <label>E-mail</label>
+          <input type="text" id="signupEmail" />
+          <div class="success-message hidden">사용가능한 유저정보입니다.</div>
+          <div class="failure-message hidden">
+            4이상 12미만의 입력값을 넣어주세요
+          </div>
+          <label>Name</label>
+          <input type="text" id="signupName" />
+          <div class="success-message hidden">사용가능한 유저정보입니다.</div>
+          <div class="failure-message hidden">
+            4이상 12미만의 입력값을 넣어주세요
+          </div>
+          <button id="myLink" class="signupFinishBtn">Sign up</button>
+        </div>
+        <!-- 회원가입끝 -->
       </div>
       <div class="footer">
         <h3>FOOTER</h3>

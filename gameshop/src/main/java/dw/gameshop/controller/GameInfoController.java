@@ -19,7 +19,7 @@ public class GameInfoController {
         this.gameInfoService = gameInfoService;
     }
 
-    @GetMapping("api/game")
+    @GetMapping("products")
     public ResponseEntity<List<Game>> getAllGames() {
         return new ResponseEntity<>(gameInfoService.getAllGames(), HttpStatus.OK);
     }

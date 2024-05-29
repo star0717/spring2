@@ -1,19 +1,16 @@
-/* (public static main() { */
 const url = "http://localhost:8080/products";
-//then()함수
-//promise 연결 함수 // then은 앞쪽에 있는 promise 코드가 끝나면 실행된다. (앞에 할 일을 적는다.)
-//사용예 : axios.get(url).then(할일 = 익명함수).then(할일).then(할일).catcjh(에러처리); -> 이러한 문법을 자바에서 promise then 이라고 부른다.
+
 axios
   .get(url)
   .then((response) => {
-    console.log("응답 Response : ", response);
-    displayProduct(response.data);
+    console.log("응답 Response: ", response);
+    displayProducts(response.data);
   })
   .catch((error) => {
-    console.log("에러발생 : ", error);
+    console.log("에러 발생: ", error);
   });
 
-function displayProduct(gameData) {
+function displayProducts(gameData) {
   console.log(gameData.length);
   if (gameData.length > 0) {
     const content = document.querySelector(".content");
